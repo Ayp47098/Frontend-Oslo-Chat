@@ -94,17 +94,11 @@ function App() {
           <Box sx={{ 
             width: 40, 
             height: 40, 
-            backgroundColor: '#fff', 
+            backgroundColor: '#FFB800', 
             borderRadius: '50%',
             border: '1px solid #e9ecef',
-            overflow: 'hidden',
             mb: 3
           }}>
-            <img 
-              src="https://via.placeholder.com/40/cccccc/666666?text=👤" 
-              alt="Profile" 
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
           </Box>
           
           {/* Navigation Icons */}
@@ -289,42 +283,17 @@ function App() {
               mb: 2,
               alignItems: 'center'
             }}>
-              {/* Who - Active/Completed */}
-              <Box
-                sx={{
-                  height: 4,
-                  width: 80,
-                  backgroundColor: '#FFB800',
-                  borderRadius: 2,
-                }}
-              />
-              {/* What/Why - Inactive */}
-              <Box
-                sx={{
-                  height: 4,
-                  width: 80,
-                  backgroundColor: '#e9ecef',
-                  borderRadius: 2,
-                }}
-              />
-              {/* Where - Inactive */}
-              <Box
-                sx={{
-                  height: 4,
-                  width: 80,
-                  backgroundColor: '#e9ecef',
-                  borderRadius: 2,
-                }}
-              />
-              {/* When - Inactive */}
-              <Box
-                sx={{
-                  height: 4,
-                  width: 80,
-                  backgroundColor: '#e9ecef',
-                  borderRadius: 2,
-                }}
-              />
+              {steps.map((_, index) => (
+                <Box
+                  key={`progress-${index}`}
+                  sx={{
+                    height: 4,
+                    width: 80,
+                    backgroundColor: index <= activeStep ? '#FFB800' : '#e9ecef',
+                    borderRadius: 2,
+                  }}
+                />
+              ))}
             </Box>
 
             {/* Navigation Tabs */}
